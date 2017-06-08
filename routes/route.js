@@ -1,6 +1,6 @@
 const express = require('express');
 const axios = require('axios');
-var $ = require('jQuery');
+//var $ = require('jQuery');
 
 var app = new express();
 var router = express.Router();
