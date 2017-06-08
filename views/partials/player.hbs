@@ -1,0 +1,21 @@
+<div class="vertical-{{vertical}}">
+  <div class="hwn-video-player" id="" data-autoplay="true" data-intervals="[5000,5000]">
+      <div class="video-wrapper player-wrapper" style=''>
+          <div class="ooyala-video-player"  data-video-id="OIC41aHn" data-autoplay="true" data-contains-thumbnailNonreload="true">
+          </div>
+      </div>
+  </div>
+  <section class="slider">
+      <ul class="thumbnail-video-list" data-vertical='{{vertical}}'>
+          {{#each playlist}}
+          <li data-video-id="{{this.mediaid}}" data-video-file="{{this.sources.3.file}}" class="video-list-item">
+              <a href="#">
+                  <img src="{{this.image}}" />
+                  <span class="video-title">{{this.title}}</span>
+                  <span class="video-description">{{this.description}}</span>
+              </a>
+          </li>
+          {{/each}}
+      </ul>
+  </section>
+</div>

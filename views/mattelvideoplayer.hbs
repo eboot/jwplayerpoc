@@ -5,27 +5,16 @@
 <body>
   <div class="">
     <div class="hiddenPlayerIds" id="oo-player-id" style="display: none;">
-      <input type="hidden" value="eb2a4912cd64bc282805e03574a056c">
+      <input type="hidden" value="HCciv4ej">
     </div>
-    <input type="hidden" id="oo-player-pcode" value="s5Z2MyOlF46r3PXZUl9hPiwU2cYK" /> {{>header}}
+    <input type="hidden" id="oo-player-pcode" value="s5Z2MyOlF46r3PXZUl9hPiwU2cYK" /> 
 
-    <div class="hwn-video-player" id="" data-autoplay="true" data-intervals="[5000,5000]">
-      <div class="video-wrapper player-wrapper" style=''>
-        <div data-singleplayer="true" class="ooyala-video-player" id="player-container" data-video-id="l5MXNmYTE6HYiUdjtYAdWE_7x3uhD9Yu" data-autoplay="true">
-        </div>
-      </div>
-    </div>
-    <div class="video-thumb-container">
-    {{#each playlist}}
+    {{>header}}
 
-      <div class="videothumbs">
-        <img src="{{this.image}}" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
-      </div>
-    {{/each}}
-  </div>
+    {{>player}}
   {{>footer}}
   </div>
-  <script src='http://static.mattel.com/videoplayer/src/js/v4/MattelVideoPlayer.js'></script>
+  <script src='scripts/MattelVideoPlayer.js'></script>
 </body>
 
 </html>
