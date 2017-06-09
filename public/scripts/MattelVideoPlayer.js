@@ -207,11 +207,7 @@ MattelVideoPlayer.ooyalaApiLoaded = false;
             $('[data-contains-thumbnailnonreload=true]').data("videoId",contentId);
             return false;
         }*/
-         jwplayer("video-container-1").setup({
-              "file": "https://cdn.jwplayer.com/videos/"+externalId+".mp4",
-              "mediaid" : externalId,
-              "autostart":true
-            });
+        startOoyalaPlayer("video-container-1", externalId, false) 
         /*for (var j = 0; j < playerClass.length; j++) {
             for (var i = 0; i < curEle.parentElement.children.length; i++) {
                 if (playerClass[j].getAttribute('data-video-id') == curEle.parentElement.children[i].getAttribute('data-video-id')) {
@@ -265,16 +261,41 @@ MattelVideoPlayer.ooyalaApiLoaded = false;
                 'useFirstVideoFromPlaylist': true,
                 'loop': false
             });*/
-            jwplayer(divId).setup({
+           /* jwplayer(divId).setup({
               "file": "https://cdn.jwplayer.com/videos/"+externalId+".mp4",
-              "mediaid" : externalId
-            });
+              "image": "//content.jwplatform.com/thumbs/"+externalId+"-720.jpg",
+              "mediaid" : externalId,
+              'autostart': $('#' + divId).data('autoplay')
+            });*/
         } else { // standard player
-            
-            jwplayer(divId).setup({
-              "file": "https://cdn.jwplayer.com/videos/"+externalId+".mp4",
-              "mediaid" : externalId
+
+            /* Reference Site - https://developer.jwplayer.com/jw-player/demos/developer-showcase/video-background/ */
+
+            $.ajax({
+              /**
+               * Fun fact: You can use a single video's media ID with the Feeds API and it
+               * will return a playlist with one video. Pretty nifty!
+               */
+              url: '//content.jwplatform.com/feeds/'+externalId+'.json',
+              dataType: 'JSON'
+            }).done(function(data) {
+              /**
+               * We store the playlist so we can set the background image of the next video
+               * for a smooth transition between videos.
+               */
+                jwplayer(divId).setup({
+                    playlist: data.playlist,
+                    autostart: $('#' + divId).data('autoplay'),
+                    mute: $('#' + divId).data('mute') || false,
+                    repeat: $('#' + divId).data('repeat') || false,
+                    height: '100%',
+                    width: '100%'
+                });
             });
+
+
+            
+            
         }
         /** tracking code for player ready/play **/
 /*
