@@ -154,11 +154,15 @@ MattelVideoPlayer.ooyalaApiLoaded = false;
     function playerLoading() {
     
         for (var i = 0; i < videoContainers.length; i++) {
-            videoContainers[i].setAttribute('id', 'video-container-' + (i + 1));
+            var videoContainer = videoContainers[i].appendChild(videoContainers[i].cloneNode()),
+                videoElement = videoContainers[i].children[0];
+
+            videoElement.classList.remove("ooyala-video-player");
+            videoElement.setAttribute('id', 'video-container-' + (i + 1));
             if (!haveVideoToLoad) {
-                scenarioDetector(videoContainers[i].getAttribute('id'), i);
+                scenarioDetector(videoElement.getAttribute('id'), i);
             } else {
-                scenarioDetector(videoContainers[i].getAttribute('id'), i);
+                scenarioDetector(videoElement.getAttribute('id'), i);
                 break;
             }
         }
