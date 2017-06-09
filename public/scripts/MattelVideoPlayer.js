@@ -207,7 +207,7 @@ MattelVideoPlayer.ooyalaApiLoaded = false;
             $('[data-contains-thumbnailnonreload=true]').data("videoId",contentId);
             return false;
         }*/
-        startOoyalaPlayer("video-container-1", externalId, false) 
+         startOoyalaPlayer("video-container-1", externalId, false) 
         /*for (var j = 0; j < playerClass.length; j++) {
             for (var i = 0; i < curEle.parentElement.children.length; i++) {
                 if (playerClass[j].getAttribute('data-video-id') == curEle.parentElement.children[i].getAttribute('data-video-id')) {
