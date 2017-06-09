@@ -274,7 +274,7 @@ MattelVideoPlayer.ooyalaApiLoaded = false;
         } else { // standard player
 
             /* Reference Site - https://developer.jwplayer.com/jw-player/demos/developer-showcase/video-background/ */
-
+            var $videoElement;
             $.ajax({
               /**
                * Fun fact: You can use a single video's media ID with the Feeds API and it
@@ -287,11 +287,12 @@ MattelVideoPlayer.ooyalaApiLoaded = false;
                * We store the playlist so we can set the background image of the next video
                * for a smooth transition between videos.
                */
+                $videoElement = $('#' + divId).closest(".ooyala-video-player");
                 jwplayer(divId).setup({
                     playlist: data.playlist,
-                    autostart: $('#' + divId).data('autoplay'),
-                    mute: $('#' + divId).data('mute') || false,
-                    repeat: $('#' + divId).data('repeat') || false,
+                    autostart: $videoElement.data('autoplay'),
+                    mute: $videoElement.data('mute') || false,
+                    repeat: $videoElement.data('repeat') || false,
                     height: '100%',
                     width: '100%'
                 });
