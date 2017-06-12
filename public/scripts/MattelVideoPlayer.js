@@ -241,52 +241,42 @@ MattelVideoPlayer.ooyalaApiLoaded = false;
     function startOoyalaPlayer(divId, externalId, isCustomPlayer) {
         var playingVideo = false,
             previousEvent = '',
-            player, contentId,playerParam;
+            player, contentId,playerParam,$videoElement;
             
         contentId = (externalId.length >= 32 || externalId.indexOf('extId:') != -1) ? externalId : "extId:" + externalId;
+        $videoElement = $('#' + divId).closest(".ooyala-video-player");
+        
         if (typeof isCustomPlayer != 'undefined' && isCustomPlayer) {
-            //custom player (playlists)
-            /*var arr = [];
-            arr.push(contentId);
-             player = OO.Player.create(divId,'',{
-                'pcode':pCodeVal,
-                "playerBrandingId" : brandPlayerIds,
-                'autoplay': $('#' + divId).data('autoplay'),
-                'playlistsPlugin': {
-                    'data': arr,
-                    'orientation' : 'horizontal',
-                    'position': 'bottom',
-                    'thumbnailsSize' : '300px',
-                    'wrapperFontSize' : '18px'
-                },
-                'debug':true,
-                'width': '100%',
-                'height': '100%',
-                'useFirstVideoFromPlaylist': true,
-                'loop': false
-            });*/
-           /* jwplayer(divId).setup({
-              "file": "https://cdn.jwplayer.com/videos/"+externalId+".mp4",
-              "image": "//content.jwplatform.com/thumbs/"+externalId+"-720.jpg",
-              "mediaid" : externalId,
-              'autostart': $('#' + divId).data('autoplay')
-            });*/
+            jwplayer(divId).setup({
+                "playlist": "//cdn.jwplayer.com/v2/media/"+externalId+"",
+                "autostart": $videoElement.data('autoplay'),
+                "mute": $videoElement.data('mute') || false,
+                "repeat": $videoElement.data('repeat') || false,
+                "height": '100%',
+                "width": '100%'
+            });
         } else { // standard player
 
             /* Reference Site - https://developer.jwplayer.com/jw-player/demos/developer-showcase/video-background/ */
-            var $videoElement;
+            
+            jwplayer(divId).setup({
+                "file": "//cdn.jwplayer.com/manifests/"+externalId+".m3u8",
+                "autostart": $videoElement.data('autoplay'),
+                "mute": $videoElement.data('mute') || false,
+                "repeat": $videoElement.data('repeat') || false,
+                "height": '100%',
+                "width": '100%',
+                "mediaid" : externalId,
+            });
+
+/*
+
+
             $.ajax({
-              /**
-               * Fun fact: You can use a single video's media ID with the Feeds API and it
-               * will return a playlist with one video. Pretty nifty!
-               */
+              
               url: '//content.jwplatform.com/feeds/'+externalId+'.json',
               dataType: 'JSON'
             }).done(function(data) {
-              /**
-               * We store the playlist so we can set the background image of the next video
-               * for a smooth transition between videos.
-               */
                 $videoElement = $('#' + divId).closest(".ooyala-video-player");
                 jwplayer(divId).setup({
                     playlist: data.playlist,
@@ -297,7 +287,7 @@ MattelVideoPlayer.ooyalaApiLoaded = false;
                     width: '100%'
                 });
             });
-
+*/
 
             
             
