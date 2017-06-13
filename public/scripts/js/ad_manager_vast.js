@@ -4,17 +4,17 @@
  */
 
 
-require("../scripts/html5-common/js/utils/InitModules/InitOO.js");
-require("../scripts/html5-common/js/utils/InitModules/InitOOJQuery.js");
-require("../scripts/html5-common/js/utils/InitModules/InitOOUnderscore.js");
-require("../scripts/html5-common/js/utils/InitModules/InitOOHazmat.js");
-require("../scripts/html5-common/js/utils/InitModules/InitOOPlayerParamsDefault.js");
+require("/scripts/html5-common/js/utils/InitModules/InitOO.js");
+require("/scripts/html5-common/js/utils/InitModules/InitOOJQuery.js");
+require("/scripts/html5-common/js/utils/InitModules/InitOOUnderscore.js");
+require("/scripts/html5-common/js/utils/InitModules/InitOOHazmat.js");
+require("/scripts/html5-common/js/utils/InitModules/InitOOPlayerParamsDefault.js");
 
-require("../scripts/html5-common/js/utils/constants.js");
-require("../scripts/html5-common/js/utils/utils.js");
-require("../scripts/html5-common/js/utils/environment.js");
+require("/scripts/html5-common/js/utils/constants.js");
+require("/scripts/html5-common/js/utils/utils.js");
+require("/scripts/html5-common/js/utils/environment.js");
 
-var adManagerUtils = require("../scripts/utils/ad_manager_utils.js");
+var adManagerUtils = require("/scripts/utils/ad_manager_utils.js");
 
 OO.Ads.manager(function(_, $) {
   /**
