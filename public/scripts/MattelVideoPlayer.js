@@ -259,7 +259,7 @@ MattelVideoPlayer.ooyalaApiLoaded = false;
 
             /* Reference Site - https://developer.jwplayer.com/jw-player/demos/developer-showcase/video-background/ */
             
-            jwplayer(divId).setup({
+            /*jwplayer(divId).setup({
                 "file": "//cdn.jwplayer.com/manifests/"+externalId+".m3u8",
                 "autostart": $videoElement.data('autoplay'),
                 "mute": $videoElement.data('mute') || false,
@@ -267,9 +267,9 @@ MattelVideoPlayer.ooyalaApiLoaded = false;
                 "height": '100%',
                 "width": '100%',
                 "mediaid" : externalId,
-            });
+            });*/
 
-/*
+
 
 
             $.ajax({
@@ -287,7 +287,7 @@ MattelVideoPlayer.ooyalaApiLoaded = false;
                     width: '100%'
                 });
             });
-*/
+
 
             
             
