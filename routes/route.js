@@ -16,6 +16,14 @@ router.get('/',(req,res)=>{
   });
 });
 
+router.get('/adpoc',(req,res)=>{
+  res.render('adpoc.hbs',{
+    appTitle: appTitle,
+    pageTitle: 'Ad POC | Mattel',
+    hasNav: true
+  });
+});
+
 router.get('/mattelvideoplayer',(req,res)=>{
   axios.get(playlistUrl).then((response)=>{
     // console.log(response.data.playlist);
