@@ -6,17 +6,21 @@
   {{>header}}
     <!-- <div id='container' style='width:640px;height:480px'></div> -->
     <script src='//player.ooyala.com/v3/eb2a4912cd64bc282805e03574a056c'></script>
-    <div id='ooyalaplayer'></div>
+    <div id='ooyalaplayer' style='width:100%;height:500px'></div>
     <script>
-      OO.ready(function() { OO.Player.create('ooyalaplayer', 'Q4cHVqYjE6c6m8LbM1Kj2GfuRFs66QxB',{
-          height:"100%",
-          width:"100%",
-          adSetCode: "3adb595dfacb4dfca6cc226c9bdac84a",
-          "vast":{
-              tagUrl: "https://playertest.longtailvideo.com/vast-30s-ad.xml"
-           }
-        }); });
+      OO.ready(function() { OO.Player.create('ooyalaplayer', 'Q4cHVqYjE6c6m8LbM1Kj2GfuRFs66QxB'); });
     </script>
     <noscript><div>Please enable Javascript to watch this video</div></noscript>
+    {{>footer}}
+
+<!-- DO NOT USE: this block is for adset injection in the create block -->
+<!-- ,{
+    height:"100%",
+    width:"100%",
+    adSetCode: "3adb595dfacb4dfca6cc226c9bdac84a",
+    "vast":{
+       tagUrl: "https://playertest.longtailvideo.com/vast-30s-ad.xml"
+      }
+  } -->
   </body>
 </html>
