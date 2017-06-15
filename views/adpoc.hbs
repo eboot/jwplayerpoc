@@ -5,12 +5,19 @@
 <body class = "container-fluid">
   {{>header}}
     <!-- <div id='container' style='width:640px;height:480px'></div> -->
-    <script src='//player.ooyala.com/v3/eb2a4912cd64bc282805e03574a056c'></script>
-    <div id='ooyalaplayer' style='width:100%;height:500px'></div>
+    <!-- This embed code automatically includes and packages standard Player V4 plugins. If you need a different mix of plugins, please use the Advanced embed option. To see the included plugins, please refer to this doc: http://help.ooyala.com/video-platform/concepts/pbv4_release_notes.html -->
+    <script src="//player.ooyala.com/core/f2d158bb09c6430d9321f19cc5e6a2d3"></script>
+    <!-- The following div will contain the instantiated player, and is identified by id -->
+    <div id='container' ></div>
+    <!-- Player parameter modify some basic player behaviors and looks -->
     <script>
-      OO.ready(function() { OO.Player.create('ooyalaplayer', 'Q4cHVqYjE6c6m8LbM1Kj2GfuRFs66QxB'); });
+      var playerParam = {
+        'autoplay':false,
+        'loop':false
+      };
+      OO.ready(function() {window.pp = OO.Player.create('container', 'Q4cHVqYjE6c6m8LbM1Kj2GfuRFs66QxB', playerParam);});
     </script>
-    <noscript><div>Please enable Javascript to watch this video</div></noscript>
+
     {{>footer}}
 
 <!-- DO NOT USE: this block is for adset injection in the create block -->
