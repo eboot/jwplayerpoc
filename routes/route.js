@@ -32,6 +32,14 @@ router.get('/adpochtml5',(req,res)=>{
   });
 });
 
+router.get('/ooyaladebug',(req,res)=>{
+  res.render('ooyaladebug.hbs',{
+    appTitle: appTitle,
+    pageTitle: 'ooyaladebug | Mattel',
+    hasNav: true,
+  });
+});
+
 router.get('/mattelvideoplayer',(req,res)=>{
   axios.get(playlistUrl).then((response)=>{
     // console.log(response.data.playlist);
